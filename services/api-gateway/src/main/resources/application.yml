@@ -11,7 +11,7 @@ spring:
         webflux:
           routes:
             - id: customer-service
-              uri: http://localhost:8081
+              uri: lb://customer-service
               predicates:
                 - Path=/api/customers/**
               filters:
@@ -25,3 +25,7 @@ management:
     web:
       exposure:
         include: health,info,gateway
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
