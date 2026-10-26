@@ -5,6 +5,8 @@ server:
 spring:
   application:
     name: api-gateway
+  config:
+    import: optional:configserver:http://localhost:8888
   cloud:
     gateway:
       server:
@@ -25,7 +27,3 @@ management:
     web:
       exposure:
         include: health,info,gateway
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
